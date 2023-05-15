@@ -1,0 +1,6 @@
+main.exe
+cmake-build-debug
+.idea/
+Pilhas/CMakeLists.txt
+Filas/CMakeLists.txt
+Filas/index.html
