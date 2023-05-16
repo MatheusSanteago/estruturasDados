@@ -10,6 +10,7 @@ typedef struct {
     char autor[40];
 } Livro;
 Livro livros[tamanho];
+Livro livroVazio[1];
 
 struct plivro {
     int fim;
@@ -25,9 +26,11 @@ void ver_livros();
 void adicionar_livro();
 void empilhar();
 void desempilhar();
+void adicionar_livroVazio();
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
+    adicionar_livroVazio();
     biblioteca.fim = 0;
     biblioteca.ini = 0;
     op = 1;
@@ -35,7 +38,7 @@ int main(){
     while (op != 0){
         system("cls");
         ver_livros();
-        printf("Escolha uma operacao \n 1 - Adicionar \n 2 - Remover \n 3 - Ver \n\n => ");
+        printf("\n Escolha uma operacao \n 1 - Adicionar \n 2 - Remover \n 3 - Ver \n\n => ");
         scanf("%d", &op);
         switch (op) {
             case 1:
@@ -62,6 +65,13 @@ void adicionar_livro(){
     system("cls");
     biblioteca.fim++;
 }
+void adicionar_livroVazio(){
+    livroVazio[0].cod = 0;
+    printf("Digite 'Vazio'\n");
+    scanf("%s", livroVazio[0].nome);
+    printf("Digite 'Vazio'\n");
+    scanf("%s", livros[0].autor);
+}
 
 void ver_livros(){
     int i;
@@ -76,9 +86,7 @@ void desempilhar(){
         system("Pause");
     } else {
         int i;
-        for(i=0; i < tamanho; i++){
-            livros[i] = livros[i+1];
-        }
+        livros[biblioteca.fim-1] = livroVazio[0];
         biblioteca.fim--;
     }
 }
