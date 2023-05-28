@@ -17,7 +17,7 @@ void menu_mostrar();
 void menu_selecionar(int op);
 void lista_mostrar2(pointer_no list);
 void lista_inserir(pointer_no list);
-void lista_remover(pointer_no list);
+void lista_remover(pointer_no pilh);
 
 int main(){
     srand(time(NULL));
